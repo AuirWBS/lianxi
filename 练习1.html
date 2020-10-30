@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: #00b3ee;
+            
+            position: absolute;
+        }
+    </style>
+    <script src="../js/three.js"></script>
+</head>
+<body>
+<div id="box">
+
+</div>
+</body>
+<script>
+    var a=10;
+    var b=6;
+    var scene=new THREE.Scene();
+
+    var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,1,1000);
+
+    var renderer=new THREE.WebGLRenderer();
+    renderer.setClearColor("#000");
+    renderer.setSize(window.innerWidth,window.innerHeight);
+
+    document.body.appendChild(renderer.domElement);
+
+    var geometry=new THREE.CubeGeometry(5,10,5);
+    var geometry1=new THREE.CubeGeometry(1,1,1);
+    var geometry2=new THREE.CubeGeometry(20,3,5);
+    var material=new THREE.MeshBasicMaterial({color:"yellow"});
+    var material1=new THREE.MeshBasicMaterial({color:"orange"});
+    var material2=new THREE.MeshBasicMaterial({color:"yellow"});
+
+    var cube=new THREE.Mesh(geometry,material);
+    var cube1=new THREE.Mesh(geometry1,material1);
+    var cube2=new THREE.Mesh(geometry1,material1);
+    var cube3=new THREE.Mesh(geometry1,material1);
+    var cube4=new THREE.Mesh(geometry1,material1);
+    var cube5=new THREE.Mesh(geometry1,material1);
+    var cube6=new THREE.Mesh(geometry1,material1);
+    var cube7=new THREE.Mesh(geometry,material);
+    var cube8=new THREE.Mesh(geometry1,material1);
+    var cube9=new THREE.Mesh(geometry1,material1);
+    var cube10=new THREE.Mesh(geometry1,material1);
+    var cube11=new THREE.Mesh(geometry1,material1);
+    var cube12=new THREE.Mesh(geometry1,material1);
+    var cube13=new THREE.Mesh(geometry1,material1);
+    var cube14=new THREE.Mesh(geometry1,material1);
+    var cube15=new THREE.Mesh(geometry2,material2)
+
+    cube7.position.x=15;
+
+    cube1.position.x=2.1;
+    cube1.position.y=-2;
+    cube1.position.z=-1;
+
+    cube2.position.x=2.1;
+    cube2.position.y=0;
+    cube2.position.z=-1;
+
+    cube14.position.x=2.1;
+    cube14.position.y=2;
+    cube14.position.z=1;
+
+    cube3.position.x=2.1;
+    cube3.position.y=2;
+    cube3.position.z=-1;
+
+    cube4.position.x=2.1;
+    cube4.position.y=-2;
+    cube4.position.z=1;
+
+    cube5.position.x=2.1;
+    cube5.position.y=0;
+    cube5.position.z=1;
+
+    cube6.position.x=12.9;
+    cube6.position.y=2;
+    cube6.position.z=1;
+
+    cube8.position.x=12.9;
+    cube8.position.y=-2;
+    cube8.position.z=-1;
+
+    cube9.position.x=12.9;
+    cube9.position.y=2;
+    cube9.position.z=-1;
+
+    cube10.position.x=12.9;
+    cube10.position.y=0;
+    cube10.position.z=-1;
+
+    cube11.position.x=12.9;
+    cube11.position.y=-2;
+    cube11.position.z=1;
+
+    cube12.position.x=12.9;
+    cube12.position.y=0;
+    cube12.position.z=1;
+
+    cube13.position.x=12.9;
+    cube13.position.y=2;
+    cube13.position.z=1;
+
+    cube15.position.x=7.5;
+    cube15.position.y=6;
+    cube15.position.z=0;
+
+    scene.add(cube);
+    scene.add(cube1);
+    scene.add(cube2);
+    scene.add(cube3);
+    scene.add(cube4);
+    scene.add(cube5);
+    scene.add(cube6);
+    scene.add(cube7);
+    scene.add(cube8);
+    scene.add(cube9);
+    scene.add(cube10);
+    scene.add(cube11);
+    scene.add(cube12);
+    scene.add(cube13);
+    scene.add(cube14);
+    scene.add(cube15);
+
+    window.onkeydown=function (e) {
+            if(e.keyCode===65){
+                b--;
+            }else if(e.keyCode===87){
+                a--;
+            }else if(e.keyCode===68){
+                b++;
+            }else if(e.keyCode===83){
+                a++;
+            }
+    }
+
+    function render() {
+        requestAnimationFrame(render);
+        camera.position.z=a;
+        camera.position.x=b;
+        renderer.render(scene,camera);
+    }
+    render();
+</script>
+</html>
